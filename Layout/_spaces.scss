@@ -1,0 +1,39 @@
+@each $abbr,
+  $name
+    in (
+      "pd": "padding",
+      "pdt": "padding-top",
+      "pdb": "padding-bottom",
+      "pdl": "padding-left",
+      "pdr": "padding-right",
+      "mg": "margin",
+      "mgt": "margin-top",
+      "mgb": "margin-bottom",
+      "mgl": "margin-left",
+      "mgr": "margin-right"
+    )
+{
+  @for $i from 1 through 8 {
+    .#{$abbr}-#{$i} {
+      #{$name}: 0.25rem * $i !important;
+    }
+  }
+}
+
+@each $abbr, $name in ("pdx": "padding", "mgx": "margin") {
+  @for $i from 1 through 8 {
+    .#{$abbr}-#{$i} {
+      #{$name}-left: 0.25rem * $i !important;
+      #{$name}-right: 0.25rem * $i !important;
+    }
+  }
+}
+
+@each $abbr, $name in ("pdy": "padding", "mgy": "margin") {
+  @for $i from 1 through 8 {
+    .#{$abbr}-#{$i} {
+      #{$name}-top: 0.25rem * $i !important;
+      #{$name}-bottom: 0.25rem * $i !important;
+    }
+  }
+}

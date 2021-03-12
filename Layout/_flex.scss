@@ -1,0 +1,15 @@
+@each $abbr, $name in ("flex": "flex") {
+  @for $i from 1 through 5 {
+    .#{$abbr}-#{$i} {
+      #{$name}: $i;
+    }
+  }
+}
+
+@each $abbr, $name in ("gap": "gap") {
+  @for $i from 1 through 8 {
+    .#{$abbr}-#{$i} {
+      #{$name}: 0.25rem * $i;
+    }
+  }
+}
