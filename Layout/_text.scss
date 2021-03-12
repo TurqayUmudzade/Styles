@@ -1,3 +1,12 @@
+//default
+.text {
+}
+
+.bold {
+  font-weight: bold;
+}
+
+//Headers
 .sm-header {
 }
 
@@ -7,10 +16,7 @@
 .xl-header {
 }
 
-//default
-.label {
-}
-
+//Sizes
 .text-xs {
   font-size: 0.75rem !important; //12px
 }

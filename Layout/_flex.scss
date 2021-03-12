@@ -1,3 +1,19 @@
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
 @each $abbr, $name in ("flex": "flex") {
   @for $i from 1 through 5 {
     .#{$abbr}-#{$i} {
