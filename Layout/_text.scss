@@ -20,16 +20,37 @@
 .text-xs {
   font-size: 0.75rem !important; //12px
 }
-.text-sm {
+
+.text-s {
   font-size: 0.875rem !important; //14px
 }
-
-.text-md {
+.text-sm {
   font-size: 1rem !important; //16px
 }
 
+.text-md {
+  font-size: 1.25rem !important; //20px
+}
+
 .text-xl {
-  font-size: 1.5rem !important; //20px
+  font-size: 1.5rem !important; //24px
+}
+.text-xxl {
+  font-size: 32px !important; //32px
+}
+.text-xxxl {
+  font-size: 2.5rem !important; //40px
+}
+
+//Text Align
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 
 //Add colors Here

@@ -1,0 +1,29 @@
+.custom-checkbox-label {
+  position: relative;
+  cursor: pointer;
+  .custom-checkbox {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    //add with height border
+  }
+  input[type="checkbox"] {
+    display: none;
+    &:checked {
+      & + .custom-checkbox {
+        //background
+        &::after {
+          content: "✔";
+          color: white;
+          position: absolute;
+          border-radius: 50%;
+          left: 0px;
+          right: 0;
+          top: 0px;
+          bottom: 0;
+          //width height
+        }
+      }
+    }
+  }
+}
