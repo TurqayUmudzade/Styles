@@ -1,3 +1,4 @@
+//Margins and Paddings
 @each $abbr,
   $name
     in (
@@ -24,10 +25,39 @@
   }
 }
 
+//Height and width
 @each $abbr, $name in ("h": "height", "w": "width") {
-  @for $i from 1 through 4 {
-    .#{$abbr}-#{$i*25} {
-      #{$name}: 25% * $i !important;
+  @for $i from 1 through 6 {
+    @for $j from $i + 1 through 6 {
+      .#{$abbr}-#{$i}\/#{$j} {
+        #{$name}: 100% * $i/$j !important;
+      }
+    }
+  }
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+//Z-index
+
+@each $abbr, $name in ("z": "z-index") {
+  @for $i from 1 through 10 {
+    .#{$abbr}-#{$i} {
+      #{$name}: 10 * $i !important;
     }
   }
 }
