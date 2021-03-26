@@ -4,7 +4,9 @@
   &-column {
     flex-direction: column;
   }
-
+  &-wrap {
+    flex-wrap: wrap;
+  }
   &-jc-sb {
     justify-content: space-between;
   }
@@ -22,7 +24,7 @@
 }
 
 @each $abbr, $name in ("flex": "flex") {
-  @for $i from 1 through 5 {
+  @for $i from 1 through 6 {
     .#{$abbr}-#{$i} {
       #{$name}: $i;
     }
@@ -30,9 +32,15 @@
 }
 
 @each $abbr, $name in ("gap": "gap") {
-  @for $i from 1 through 8 {
-    .#{$abbr}-#{$i} {
-      #{$name}: 0.25rem * $i;
+  @for $i from 1 through 25 {
+    @if $i<=10 {
+      .#{$abbr}-#{$i} {
+        #{$name}: 0.25rem * $i;
+      }
+    } @else if $i%5==0 {
+      .#{$abbr}-#{$i} {
+        #{$name}: 0.25rem * $i;
+      }
     }
   }
 }

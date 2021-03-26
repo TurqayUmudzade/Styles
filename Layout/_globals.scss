@@ -2,15 +2,33 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-.border {
-  border: 1px solid #dfe0eb;
+
+//Borders
+@each $abbr,
+  $name
+    in (
+      "border": "border",
+      "border-t": "border-top",
+      "border-b": "border-bottom",
+      "border-l": "border-left",
+      "border-r": "border-right"
+    )
+{
+  .#{$abbr} {
+    #{$name}: 1px solid #e0e0e0;
+  }
 }
-.border-bottom {
-  border-bottom: 1px solid #e0e0e0;
+//Increments by 2
+@for $i from 1 through 10 {
+  .rounded-#{$i} {
+    border-radius: 1rem * $i/8;
+  }
 }
-.rounded {
-  border-radius: 2px;
+
+.full-round {
+  border-radius: 50%;
 }
+
 .full-center {
   display: flex;
   justify-content: center;
@@ -21,6 +39,7 @@
   cursor: pointer;
 }
 
+//Positions
 .relative {
   position: relative;
 }
@@ -33,6 +52,7 @@
   position: fixed;
 }
 
+//Visibility
 .hidden {
   display: none;
 }
