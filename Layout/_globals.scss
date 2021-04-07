@@ -62,3 +62,30 @@
 }
 
 //backgrounds
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    .container {
+      max-width: $size;
+    }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    @each $abbr,
+      $property
+        in (
+          "border": "border",
+          "border-t": "border-top",
+          "border-b": "border-bottom",
+          "border-l": "border-left",
+          "border-r": "border-right"
+        )
+    {
+      .#{$name}\:#{$abbr} {
+        #{$property}: 1px solid #eeeeee;
+      }
+    }
+  }
+}

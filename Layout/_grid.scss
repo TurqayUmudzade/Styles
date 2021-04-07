@@ -1,0 +1,27 @@
+.grid {
+  display: grid;
+}
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    @for $i from 1 through 12 {
+      .#{$name}\:col-#{$i} {
+        flex: 0 0 (100%/12) * $i;
+        max-width: (100%/12) * $i;
+        padding-inline: 15px;
+      }
+    }
+
+    @for $i from 1 through 4 {
+      .#{$name}\:grid-c-#{$i} {
+        grid-template-columns: repeat($i, 1fr);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .grid-c-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}

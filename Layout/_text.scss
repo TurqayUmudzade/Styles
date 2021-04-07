@@ -63,3 +63,17 @@
 }
 
 //Add colors Here
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    .#{$name}\:text-center {
+      text-align: center !important;
+    }
+    .#{$name}\:text-left {
+      text-align: left !important;
+    }
+    .#{$name}\:text-right {
+      text-align: right !important;
+    }
+  }
+}

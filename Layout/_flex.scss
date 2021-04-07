@@ -1,6 +1,5 @@
 .flex {
   display: flex;
-
   &-column {
     flex-direction: column;
   }
@@ -42,5 +41,48 @@
         #{$name}: 0.25rem * $i;
       }
     }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    .#{$name}\:flex {
+      display: flex !important;
+    }
+    .#{$name}\:flex-wrap {
+      flex-wrap: wrap !important;
+    }
+    .#{$name}\:flex-row {
+      flex-direction: row !important;
+    }
+    .#{$name}\:flex-column {
+      flex-direction: column !important;
+    }
+    .#{$name}\:flex-d-cr {
+      flex-direction: column-reverse !important;
+    }
+    .#{$name}\:flex-jc-s {
+      justify-content: flex-start !important;
+    }
+    .#{$name}\:flex-jc-c {
+      justify-content: center !important;
+    }
+    .#{$name}\:flex-jc-sb {
+      justify-content: space-between !important;
+    }
+
+    @each $abbr, $property in ("flex": "flex") {
+      @for $i from 1 through 5 {
+        .#{$name}\:#{$abbr}-#{$i} {
+          #{$property}: $i;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 4 {
+  .grid-c-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
   }
 }
