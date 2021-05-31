@@ -277,6 +277,9 @@ a:hover {
 .flex-jc-sb {
   justify-content: space-between;
 }
+.flex-jc-sa {
+  justify-content: space-around;
+}
 .flex-jc-c {
   justify-content: center;
 }
