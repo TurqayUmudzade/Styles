@@ -1,5 +1,4 @@
 .container {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -21,7 +20,7 @@
 //Increments by 2
 @for $i from 1 through 10 {
   .rounded-#{$i} {
-    border-radius: 1rem * $i/8;
+    border-radius: math.div(1rem * $i, 8);
   }
 }
 
@@ -84,8 +83,30 @@
         )
     {
       .#{$name}\:#{$abbr} {
-        #{$property}: 1px solid #eeeeee;
+        #{$property}: 1px solid #ebebeb;
       }
+    }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    .#{$name}\:relative {
+      position: relative;
+    }
+
+    .#{$name}\:absolute {
+      position: absolute;
+    }
+
+    .#{$name}\:fixed {
+      position: fixed;
+    }
+    .#{$name}\:block {
+      display: block;
+    }
+    .#{$name}\:hidden {
+      display: none;
     }
   }
 }

@@ -18,7 +18,7 @@
       "mr": "margin-right"
     )
 {
-  @for $i from 1 through 10 {
+  @for $i from 1 through 25 {
     .#{$abbr}-#{$i} {
       #{$name}: 0.25rem * $i !important;
     }
@@ -30,12 +30,19 @@
   @for $i from 1 through 6 {
     @for $j from $i + 1 through 6 {
       .#{$abbr}-#{$i}\/#{$j} {
-        #{$name}: 100% * $i/$j !important;
+        #{$name}: math.div(100% * $i, $j) !important;
       }
     }
   }
 }
 
+.mw-full {
+  min-width: 100%;
+}
+
+.max-width {
+  max-width: 100%;
+}
 .w-full {
   width: 100%;
 }
@@ -98,7 +105,7 @@
       @for $i from 1 through 6 {
         @for $j from $i + 1 through 6 {
           .#{$name}\:#{$abbr}-#{$i}\/#{$j} {
-            #{$property}: 100% * $i/$j !important;
+            #{$property}: math.div(100% * $i, $j) !important;
           }
         }
       }

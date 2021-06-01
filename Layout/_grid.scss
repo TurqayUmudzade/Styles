@@ -6,8 +6,8 @@
   @include mq($size) {
     @for $i from 1 through 12 {
       .#{$name}\:col-#{$i} {
-        flex: 0 0 (100%/12) * $i;
-        max-width: (100%/12) * $i;
+        flex: 0 0 math.div(100%, 12) * $i;
+        max-width: math.div(100%, 12) * $i;
         padding-inline: 15px;
       }
     }
