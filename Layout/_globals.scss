@@ -14,7 +14,7 @@
     )
 {
   .#{$abbr} {
-    #{$name}: 1px solid #e0e0e0;
+    #{$name}: 2px solid #e1e1e1;
   }
 }
 //Increments by 2
@@ -38,22 +38,9 @@
   cursor: pointer;
 }
 
-//Positions
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.fixed {
-  position: fixed;
-}
-
 //Visibility
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .invisible {
@@ -61,6 +48,9 @@
 }
 
 //backgrounds
+// .bg-gray-100 {
+//   background: $gray-100;
+// }
 
 @each $name, $size in $breakpoints {
   @include mq($size) {
@@ -83,10 +73,14 @@
         )
     {
       .#{$name}\:#{$abbr} {
-        #{$property}: 1px solid #ebebeb;
+        #{$property}: 2px solid #e1e1e1;
       }
     }
   }
+}
+
+.block{
+  display: block;
 }
 
 @each $name, $size in $breakpoints {
@@ -103,10 +97,16 @@
       position: fixed;
     }
     .#{$name}\:block {
-      display: block;
+      display: block !important;
     }
     .#{$name}\:hidden {
       display: none;
     }
+  }
+}
+
+@for $i from 1 through 9 {
+  .opacity-#{$i} {
+    opacity: math.div($i, 10);
   }
 }

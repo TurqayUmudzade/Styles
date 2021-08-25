@@ -1,4 +1,3 @@
-//Margins and Paddings
 @each $abbr,
   $name
     in (
@@ -18,54 +17,13 @@
       "mr": "margin-right"
     )
 {
-  @for $i from 1 through 25 {
+  @for $i from 0 through 30 {
     .#{$abbr}-#{$i} {
       #{$name}: 0.25rem * $i !important;
     }
   }
-}
-
-//Height and width
-@each $abbr, $name in ("h": "height", "w": "width") {
-  @for $i from 1 through 6 {
-    @for $j from $i + 1 through 6 {
-      .#{$abbr}-#{$i}\/#{$j} {
-        #{$name}: math.div(100% * $i, $j) !important;
-      }
-    }
-  }
-}
-
-.mw-full {
-  min-width: 100%;
-}
-
-.max-width {
-  max-width: 100%;
-}
-.w-full {
-  width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-//Z-index
-
-@each $abbr, $name in ("z": "z-index") {
-  @for $i from 1 through 10 {
-    .#{$abbr}-#{$i} {
-      #{$name}: 10 * $i !important;
-    }
+  .#{$abbr}-auto {
+    #{$name}: auto !important;
   }
 }
 
@@ -95,28 +53,9 @@
           #{$property}: 0.25rem * $i !important;
         }
       }
-    }
-  }
-}
-
-@each $name, $size in $breakpoints {
-  @include mq($size) {
-    @each $abbr, $property in ("h": "height", "w": "width") {
-      @for $i from 1 through 6 {
-        @for $j from $i + 1 through 6 {
-          .#{$name}\:#{$abbr}-#{$i}\/#{$j} {
-            #{$property}: math.div(100% * $i, $j) !important;
-          }
-        }
+      .#{$name}\:#{$abbr}-auto {
+        #{$name}: auto !important;
       }
-    }
-
-    .#{$name}\:mw-full {
-      min-width: 100%;
-    }
-
-    .#{$name}\:w-full {
-      width: 100%;
     }
   }
 }

@@ -1,0 +1,29 @@
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+@each $abbr,
+  $name in ("top": "top", "bottom": "bottom", "left": "left", "right": "right")
+{
+  @for $i from 1 through 30 {
+    .#{$abbr}-#{$i} {
+      #{$name}: 0.25rem * $i !important;
+    }
+  }
+}
+
+@each $abbr, $name in ("z": "z-index") {
+  @for $i from 1 through 10 {
+    .#{$abbr}-#{$i} {
+      #{$name}: 10 * $i !important;
+    }
+  }
+}

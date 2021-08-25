@@ -1,6 +1,6 @@
 .flex {
   display: flex;
-  &-column {
+  &-col {
     flex-direction: column;
   }
   &-wrap {
@@ -19,29 +19,31 @@
   &-ai-c {
     align-items: center;
   }
+  &-ai-s {
+    align-items: flex-start;
+  }
   &-as-s {
     align-self: flex-start;
   }
-}
-
-@each $abbr, $name in ("flex": "flex") {
-  @for $i from 1 through 6 {
-    .#{$abbr}-#{$i} {
-      #{$name}: $i;
-    }
+  &-rev {
+    flex-direction: row-reverse;
   }
 }
 
-@each $abbr, $name in ("gap": "gap") {
-  @for $i from 1 through 25 {
-    @if $i<=10 {
-      .#{$abbr}-#{$i} {
-        #{$name}: 0.25rem * $i;
-      }
-    } @else if $i%5==0 {
-      .#{$abbr}-#{$i} {
-        #{$name}: 0.25rem * $i;
-      }
+@for $i from 1 through 6 {
+  .flex-#{$i} {
+    flex: $i;
+  }
+}
+
+@for $i from 0 through 25 {
+  @if $i<=15 {
+    .gap-#{$i} {
+      gap: 0.25rem * $i;
+    }
+  } @else if $i%5==0 {
+    .gap-#{$i} {
+      gap: 0.25rem * $i;
     }
   }
 }
@@ -56,6 +58,9 @@
     }
     .#{$name}\:flex-row {
       flex-direction: row !important;
+    }
+    .#{$name}\:flex-rev {
+      flex-direction: row-reverse !important;
     }
     .#{$name}\:flex-column {
       flex-direction: column !important;

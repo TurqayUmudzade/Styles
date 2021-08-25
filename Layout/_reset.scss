@@ -64,6 +64,10 @@ a {
   cursor: auto;
   &:hover {
     text-decoration: none !important;
-    color: initial !important;
   }
+}
+
+
+input:focus{
+  outline: none;
 }

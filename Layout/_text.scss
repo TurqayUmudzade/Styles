@@ -1,20 +1,41 @@
-//default
+p,
 .text {
+  color: $black;
+  line-height: 149%;
+  letter-spacing: 0.02em;
+  font-size: 18px;
 }
 
-//Headers
-.header-sm {
+h1,
+h2,
+h3 {
+  line-height: 149%;
+  letter-spacing: 0.02em;
+  color: $black;
+  font-weight: normal; //dont remove
 }
 
+h1,
 .header-md {
+  font-size: 48px;
 }
 
-.header-xl {
+h2,
+.header-sm {
+  font-weight: bold;
+  font-size: 30px;
 }
 
-//Sizes
-.text-xxs {
-  font-size: 0.625rem !important; //10px
+h3 {
+  font-size: 25px;
+}
+
+.header-lg {
+  font-size: 55px;
+  line-height: 149%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $black;
 }
 
 .text-xs {
@@ -39,7 +60,10 @@
   font-size: 2rem !important; //32px
 }
 
-//Text Align
+.text-underline {
+  text-decoration: underline;
+}
+
 .text-center {
   text-align: center;
 }
@@ -62,7 +86,17 @@
   font-style: italic;
 }
 
-//Add colors Here
+.normalcase {
+  text-transform: none !important;
+}
+.upper {
+  text-transform: uppercase !important;
+}
+
+
+.text-white {
+  color: white !important;
+}
 
 @each $name, $size in $breakpoints {
   @include mq($size) {

@@ -1,0 +1,72 @@
+@each $abbr, $name in ("h": "height", "w": "width") {
+  @for $i from 1 through 6 {
+    @for $j from $i + 1 through 6 {
+      .#{$abbr}-#{$i}\/#{$j} {
+        #{$name}: math.div(100% * $i, $j) !important;
+      }
+    }
+  }
+}
+
+.w-screen {
+  width: 100vw;
+}
+.w-full {
+  width: 100%;
+}
+.w-min-full {
+  min-width: 100%;
+}
+.w-max-width {
+  max-width: 100%;
+}
+
+.w-fit {
+  width: fit-content;
+}
+.w-min-fit {
+  min-width: fit-content;
+}
+.w-max-fit {
+  max-width: fit-content;
+}
+
+h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-fit {
+  height: fit-content;
+}
+.h-min-fit {
+  min-height: fit-content;
+}
+.h-max-fit {
+  max-height: fit-content;
+}
+
+@each $name, $size in $breakpoints {
+  @include mq($size) {
+    @each $abbr, $property in ("h": "height", "w": "width") {
+      @for $i from 1 through 6 {
+        @for $j from $i + 1 through 6 {
+          .#{$name}\:#{$abbr}-#{$i}\/#{$j} {
+            #{$property}: math.div(100% * $i, $j) !important;
+          }
+        }
+      }
+    }
+
+    .#{$name}\:mw-full {
+      min-width: 100%;
+    }
+
+    .#{$name}\:w-full {
+      width: 100%;
+    }
+  }
+}
